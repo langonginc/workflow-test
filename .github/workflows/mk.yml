@@ -34,7 +34,7 @@ jobs:
       
     - name: Echo test
       run: |
-        echo $(ls) > lsf
+        echo $(cat lsf) tee > lsf
         cat lsf
         git config --global user.email "langonginc@yeah.net"
         git config --global user.name "langonginc"
