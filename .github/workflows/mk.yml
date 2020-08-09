@@ -37,6 +37,7 @@ jobs:
         qmake ../Clock.pro
         make
         cd ../
+        git pull
         git add -A
         git commit -m "Ret"
         git push
@@ -56,15 +57,14 @@ jobs:
     # Runs a single command using the runners shell
     - name: Qmake and make
       run: |
-        echo $(cat lsf) tee > lsf
-        cat lsf
         git config --global user.email "langonginc@yeah.net"
         git config --global user.name "langonginc"
-        mkdir -p linux
-        cd linux
+        mkdir windows
+        cd windows
         qmake ../Clock.pro
         make
         cd ../
+        git pull
         git add -A
         git commit -m "Ret"
         git push
