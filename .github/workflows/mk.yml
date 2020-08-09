@@ -20,9 +20,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
     - uses: jurplel/install-qt-action@v2
     - uses: g4bri3lDev/arch-make-action@v1.23
+    - uses: actions/checkout@v2
 
 
     # Runs a single command using the runners shell
