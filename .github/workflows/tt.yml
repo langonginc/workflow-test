@@ -30,6 +30,8 @@ jobs:
       run: |
         echo $(ls) > lsf
         cat lsf
+        git config --global user.email "langonginc@yeah.net"
+        git config --global user.name "langonginc"
         git add -A
         git commit -m "Ret"
         git push
