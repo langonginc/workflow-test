@@ -210,6 +210,7 @@ DIST          = ../../../Qt/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.9/gcc_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../Qt/5.12.9/gcc_64/mkspecs/features/spec_post.prf \
+		../.qmake.stash \
 		../../../Qt/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.12.9/gcc_64/mkspecs/features/toolchain.prf \
 		../../../Qt/5.12.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -394,6 +395,7 @@ Makefile: ../Clock.pro ../../Qt/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../Qt/5.12.9/gcc_64/mkspecs/features/qt_config.prf \
 		../../Qt/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../Qt/5.12.9/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../Qt/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../Qt/5.12.9/gcc_64/mkspecs/features/toolchain.prf \
 		../../Qt/5.12.9/gcc_64/mkspecs/features/default_pre.prf \
@@ -567,6 +569,7 @@ Makefile: ../Clock.pro ../../Qt/5.12.9/gcc_64/mkspecs/features/spec_pre.prf \
 ../../Qt/5.12.9/gcc_64/mkspecs/features/qt_config.prf:
 ../../Qt/5.12.9/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../Qt/5.12.9/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../Qt/5.12.9/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../Qt/5.12.9/gcc_64/mkspecs/features/toolchain.prf:
 ../../Qt/5.12.9/gcc_64/mkspecs/features/default_pre.prf:
@@ -994,6 +997,43 @@ mainwindow.o: ../mainwindow.cpp ../mainwindow.h \
 		../../Qt/5.12.9/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../Qt/5.12.9/gcc_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
+		../../Qt/5.12.9/gcc_64/include/QtCore/QVariant \
+		../../Qt/5.12.9/gcc_64/include/QtGui/QIcon \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QApplication \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qapplication.h \
+		../../Qt/5.12.9/gcc_64/include/QtCore/qcoreapplication.h \
+		../../Qt/5.12.9/gcc_64/include/QtCore/qeventloop.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qguiapplication.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qinputmethod.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QLCDNumber \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qlcdnumber.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qframe.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QMenuBar \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qmenubar.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qmenu.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qaction.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QPushButton \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QSpinBox \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qspinbox.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qvalidator.h \
+		../../Qt/5.12.9/gcc_64/include/QtCore/qregularexpression.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QStatusBar \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QTextBrowser \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qtextedit.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qtextdocument.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qtextoption.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qtextcursor.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qtextformat.h \
+		../../Qt/5.12.9/gcc_64/include/QtGui/qpen.h \
+		../../Qt/5.12.9/gcc_64/include/QtWidgets/QWidget \
 		../../Qt/5.12.9/gcc_64/include/QtCore/QThread \
 		../../Qt/5.12.9/gcc_64/include/QtCore/qthread.h \
 		../../Qt/5.12.9/gcc_64/include/QtCore/QTime \
