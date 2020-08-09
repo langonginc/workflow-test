@@ -28,6 +28,8 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     - uses: jurplel/install-qt-action@v2
+    - uses: g4bri3lDev/arch-make-action@v1.23
+
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
@@ -39,10 +41,14 @@ jobs:
         cat lsf
         git config --global user.email "langonginc@yeah.net"
         git config --global user.name "langonginc"
+        mkdir -p linux
+        cd linux
+        qmake ../Clock.pro
+        make
+        cd ../
         git add -A
         git commit -m "Ret"
         git push
-        qmake --help
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
