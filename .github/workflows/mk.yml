@@ -21,7 +21,7 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: jurplel/install-qt-action@v2
-    - uses: g4bri3lDev/arch-make-action@v1.23
+    #- uses: g4bri3lDev/arch-make-action@v1.23
     - uses: actions/checkout@v2
 
 
