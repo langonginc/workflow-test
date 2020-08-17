@@ -31,6 +31,7 @@ jobs:
       run: |
         git config --global user.email "langonginc@yeah.net"
         git config --global user.name "langonginc"
+        ls
         mkdir windows
         cd windows
         qmake ../Clock.pro
