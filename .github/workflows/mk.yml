@@ -62,9 +62,8 @@ jobs:
         mkdir windows
         cd windows
         qmake ../Clock.pro
+        ls
         make
+        ls
         cd ../
-        git pull
-        git add -A
-        git commit -m "Ret"
-        git push
+        
