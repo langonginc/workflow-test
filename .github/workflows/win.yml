@@ -15,28 +15,67 @@ jobs:
   # This workflow contains a single job called "build"
         
   build_windows:
+    strategy:
+      # 矩阵配置
+      matrix:
+        qt_ver: [5.12.6]
+        qt_target: [desktop]
+        # mingw用不了
+        # qt_arch: [win64_msvc2017_64, win32_msvc2017, win32_mingw53,win32_mingw73]
+        qt_arch: [win64_msvc2017_64, win32_msvc2017]
+        # 额外设置msvc_arch
+        include:
+          - qt_arch: win64_msvc2017_64
+            msvc_arch: x64
+            qt_arch_install: msvc2017_64
+          - qt_arch: win32_msvc2017
+            msvc_arch: x86
+            qt_arch_install: msvc2017
+    env:
+      targetName: HelloActions-Qt.exe
     # The type of runner that the job will run on
     runs-on: windows-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: jurplel/install-qt-action@v2
-    #- uses: g4bri3lDev/arch-make-action@v1.23
-    - uses: actions/checkout@v2
-
-
-    # Runs a single command using the runners shell
-    - name: Qmake and make
-      run: |
-        git config --global user.email "langonginc@yeah.net"
-        git config --global user.name "langonginc"
-        ls
-        mkdir windows
-        cd windows
-        qmake ../Clock.pro
-        ls
-        make
-        ls
-        cd ../
-        
+      - name: cacheQt
+        id: WindowsCacheQt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt/${{matrix.qt_ver}}/${{matrix.qt_arch_install}}
+          key: ${{ runner.os }}-Qt/${{matrix.qt_ver}}/${{matrix.qt_arch}}
+      # - name: setupQt
+      #   if: steps.WindowsCacheQt.outputs.cache-hit == 'true'
+      #   shell: pwsh
+      #   env:
+      #     QtPath: ../Qt/${{matrix.qt_ver}}/${{matrix.qt_arch_install}}
+      #   run: |
+      #     $qt_Path=${env:QtPath}
+      #     echo "::set-env name=Qt5_Dir::$qt_Path"
+      #     echo "::add-path::$qt_Path/bin"          
+      # 安装Qt
+      - name: Install Qt
+        # if: steps.WindowsCacheQt.outputs.cache-hit != 'true'
+        # 使用外部action。这个action专门用来安装Qt
+        uses: jurplel/install-qt-action@v2.5.3
+        with:
+          # Version of Qt to install
+          version: ${{ matrix.qt_ver }}
+          # Target platform for build
+          target: ${{ matrix.qt_target }}
+          # Architecture for Windows/Android
+          arch: ${{ matrix.qt_arch }}
+          cached: ${{steps.WindowsCacheQt.outputs.cache-hit }}
+      # 拉取代码
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      # 编译msvc
+      - name: build-msvc
+        shell: cmd
+        env:
+          vc_arch: ${{ matrix.msvc_arch }}
+        run: |
+          call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" %vc_arch%
+          qmake
+          nmake
