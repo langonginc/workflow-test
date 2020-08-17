@@ -41,29 +41,3 @@ jobs:
         git add -A
         git commit -m "Ret"
         git push
-        
-  build_windows:
-    # The type of runner that the job will run on
-    runs-on: windows-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: jurplel/install-qt-action@v2
-    #- uses: g4bri3lDev/arch-make-action@v1.23
-    - uses: actions/checkout@v2
-
-
-    # Runs a single command using the runners shell
-    - name: Qmake and make
-      run: |
-        git config --global user.email "langonginc@yeah.net"
-        git config --global user.name "langonginc"
-        mkdir windows
-        cd windows
-        qmake ../Clock.pro
-        ls
-        make
-        ls
-        cd ../
-        
