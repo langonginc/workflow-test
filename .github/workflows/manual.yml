@@ -39,3 +39,10 @@ jobs:
     steps:
       - name: test
         run: echo test
+
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          qwqifiiafi
+          echo "hello~~"
